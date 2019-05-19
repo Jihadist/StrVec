@@ -1,4 +1,6 @@
 #pragma once
+#include <string>
+#include <stddef.h>
 class StrVec
 {
 public:

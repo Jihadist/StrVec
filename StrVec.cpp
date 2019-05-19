@@ -7,6 +7,7 @@ StrVec::StrVec(const StrVec &s)
 	auto newdata = alloc_n_copy(s.begin(), s.end());
 	elements = newdata.first;
 	first_free = cap = newdata.second;
+	std::cout << "\nCopied\n";
 }
 
 StrVec & StrVec::operator=(const StrVec &rhs)
@@ -15,6 +16,7 @@ StrVec & StrVec::operator=(const StrVec &rhs)
 	free();
 	elements = data.first;
 	first_free = cap = data.second;
+	std::cout << "\nOperator= used\n";
 	return *this;
 }
 
@@ -64,22 +66,22 @@ std::pair<std::string*, std::string*> StrVec::alloc_n_copy(const std::string *b,
 
 void StrVec::free()
 {
-	if(elements)
-	{
-		for (auto p = first_free; p != elements;)
-			alloc.destroy(--p);
-		//alloc.deallocate(elements, cap - elements);
-	}
+    if(elements)
+    {
+        for (auto p = first_free; p != elements;)
+            alloc.destroy(--p);
+        alloc.deallocate(elements, cap - elements);
+    }
 }
 
-/*void StrVec::free()
-{
-	if (elements)
-	{
-		std::for_each(elements, first_free, [this](std::string *s) {alloc.destroy(s); });
-	}
-	alloc.deallocate(elements, cap - elements);
-}*/
+//void StrVec::free()
+//{
+//	if (elements)
+//	{
+//		std::for_each(elements, cap, [this](std::string &s) {alloc.destroy(&s); });
+//    alloc.deallocate(elements, cap - elements);
+//	}
+//}
 
 void StrVec::reallocate()
 {

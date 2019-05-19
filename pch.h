@@ -8,13 +8,15 @@
 
 #ifndef PCH_H
 #define PCH_H
-#define _SILENCE_STDEXT_ALLOCATORS_DEPRECATION_WARNING
+//#define _SILENCE_STDEXT_ALLOCATORS_DEPRECATION_WARNING
 
-#include <allocators>
+#include <stddef.h>
+//#include <allocators>
 #include <iostream>
 #include <string>
 #include <memory>
 #include <algorithm>
+#include <vector>
 //#include  <memory_resource>
 // TODO: add headers that you want to pre-compile here
 

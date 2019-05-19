@@ -3,17 +3,48 @@
 
 #include "pch.h"
 #include "StrVec.h"
+#include  "Str.h"
+#include  "String.h"
 
-int main()
+void vec_test()
 {
 	std::string s1 = "abc";
 	std::string s2 = "def";
-	StrVec vec2{s1,s2};
+	StrVec vec2{ s1,s2 };
 	for (auto i : vec2)
 		std::cout << i;
-	std::cout << std::endl;
+	std::cout << std::endl << vec2.size() << " " << vec2.capacity();
 
 	std::cout << std::endl;
+}
+int f()
+{
+	std::vector<Str> vec;
+	vec.push_back("a");
+	vec.push_back("a");
+	vec.push_back("a");
+	vec.push_back("a");
+	vec.push_back("a");
+	vec.push_back("a");
+	std::cout << "hello world";
+	vec.push_back("a");
+	vec.push_back("a");
+	vec.push_back("a");
+	for (auto &i : vec)
+		std::cout << i.begin();
+	return 1;
+}
+
+int main()
+{
+	String s("asdffdsasd");
+	auto ss = s;
+	auto sss(s);
+	s.operator=(s);
+	s = s;
+	s = ss;
+	std::cout << ss.first() << ss.end();
+	
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

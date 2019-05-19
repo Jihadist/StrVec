@@ -13,7 +13,7 @@ SOURCES = \
    $$PWD/Str.cpp \
    $$PWD/String.cpp \
    $$PWD/StrVec.cpp \
-   $$PWD/Классы, управляющие динамической памятью.cpp
+   main.cpp
 
 INCLUDEPATH = \
     $$PWD/.

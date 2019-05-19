@@ -157,6 +157,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Str.h" />
+    <ClInclude Include="String.h" />
     <ClInclude Include="StrVec.h" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +168,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Str.cpp" />
+    <ClCompile Include="String.cpp" />
     <ClCompile Include="StrVec.cpp" />
     <ClCompile Include="Классы, управляющие динамической памятью.cpp" />
   </ItemGroup>
