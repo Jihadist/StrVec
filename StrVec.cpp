@@ -2,6 +2,16 @@
 #include "StrVec.h"
 
 
+StrVec::StrVec(std::initializer_list<std::string> s):
+	elements(nullptr), first_free(nullptr), cap(nullptr)
+{
+	for (auto& i : s)
+	{
+		chk_n_alloc();
+		alloc.construct(first_free++, i);
+	}
+}
+
 StrVec::StrVec(const StrVec &s)
 {
 	auto newdata = alloc_n_copy(s.begin(), s.end());
@@ -25,12 +35,6 @@ StrVec::~StrVec()
 	free();
 }
 
-void StrVec::push_back(const std::string &s)
-{
-	chk_n_alloc();
-
-	alloc.construct(first_free++, s);
-}
 
 void StrVec::reserve(size_t new_cap)
 {
@@ -45,7 +49,7 @@ void StrVec::resize(size_t n)
 	for (size_t i=0;i!=n;++n)
 	{
 		chk_n_alloc();
-		push_back(NULL);
+		alloc.construct(first_free++, nullptr);
 	}
 }
 
@@ -54,7 +58,7 @@ void StrVec::resize(size_t n, const std::string &s)
 	for (size_t i = 0; i != n; ++n)
 	{
 		chk_n_alloc();
-		push_back(s);
+		alloc.construct(first_free++,s);
 	}
 }
 

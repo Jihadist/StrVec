@@ -5,13 +5,11 @@ class StrVec
 {
 public:
 	StrVec():elements(nullptr),first_free(nullptr),cap(nullptr){}
-	StrVec(std::initializer_list<std::string> s) :
-	elements(nullptr), first_free(nullptr), cap(nullptr) { for (auto &i : s) push_back(i); }
+	StrVec(std::initializer_list<std::string> s);
 	StrVec(const StrVec&);
 	StrVec &operator=(const StrVec&);
 	~StrVec();
 	
-	void push_back(const std::string &);
 	void reserve(size_t);
 	void resize(size_t);
 	void resize(size_t, const std::string &);

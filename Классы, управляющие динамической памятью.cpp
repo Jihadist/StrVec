@@ -37,13 +37,7 @@ int f()
 
 int main()
 {
-	String s("asdffdsasd");
-	auto ss = s;
-	auto sss(s);
-	s.operator=(s);
-	s = s;
-	s = ss;
-	std::cout << ss.first() << ss.end();
+	vec_test();
 	
 }
 
